@@ -2,13 +2,12 @@ package kotlinstudy.kotlin.test
 
 import kotlinstudy.kotlin.domain.User
 import kotlinstudy.kotlin.repository.UserRepository
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import javax.transaction.Transactional
 
 @SpringBootTest
-//@Transactional
 class TestKotlin {
 
     @Autowired
@@ -18,8 +17,8 @@ class TestKotlin {
     fun userTest() {
         val user = User(1L, "name")
 
-        println(user.name)
-        println(user.id)
+        Assertions.assertThat(user.name).isEqualTo("name")
+        Assertions.assertThat(user.id).isEqualTo(1L)
     }
 
     @Test
@@ -27,7 +26,7 @@ class TestKotlin {
         val user = User("name")
         val savedUser = userRepository.save(user)
 
-        println(savedUser.name)
+        Assertions.assertThat(savedUser.name).isEqualTo("name")
     }
 }
 

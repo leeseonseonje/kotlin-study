@@ -18,7 +18,6 @@ class UserController {
 
     @PostMapping("/user")
     fun saveUser(@RequestBody request: RequestUser) {
-        println(request.name)
         userService.save(request.name)
     }
 
