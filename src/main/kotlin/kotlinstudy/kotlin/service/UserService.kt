@@ -13,7 +13,7 @@ import javax.transaction.Transactional
 @RequiredArgsConstructor
 class UserService {
 
-    private final var userRepository: UserRepository
+    private final val userRepository: UserRepository
 
     @Autowired
     constructor(userRepository: UserRepository) {

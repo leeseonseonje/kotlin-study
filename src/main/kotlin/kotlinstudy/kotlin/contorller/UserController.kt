@@ -9,7 +9,7 @@ import java.util.stream.Stream
 @RestController
 class UserController {
 
-    private final var userService: UserService
+    private final val userService: UserService
 
     @Autowired
     constructor(userService: UserService) {
@@ -17,7 +17,7 @@ class UserController {
     }
 
     @PostMapping("/user")
-    fun saveUser(@RequestBody request: RequestUser) {
+    fun saveUser(@RequestBody request: UserDto) {
         userService.save(request.name)
     }
 
