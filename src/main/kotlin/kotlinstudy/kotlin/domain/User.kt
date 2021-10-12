@@ -1,6 +1,5 @@
 package kotlinstudy.kotlin.domain
 
-import lombok.Getter
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -25,4 +24,6 @@ class User {
     constructor(name: String?) {
         this.name = name
     }
+
+    constructor()
 }

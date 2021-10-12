@@ -9,7 +9,7 @@ import java.util.stream.Stream
 @RestController
 class UserController {
 
-    private final val userService: UserService
+    private val userService: UserService?
 
     @Autowired
     constructor(userService: UserService) {
@@ -17,21 +17,25 @@ class UserController {
     }
 
     @PostMapping("/user")
-    fun saveUser(@RequestBody request: UserDto) {
-        userService.save(request.name)
+    fun saveUser(@RequestBody request: UserDto?) {
+        userService?.save(request?.name)
     }
+
+//    표현식
+//    @PostMapping("/user")
+//    fun saveUser(@RequestBody request: UserDto?) = userService?.save(request?.name)
 
     @GetMapping("/users")
     fun users(): Stream<UserDto>? {
-        val users = userService.users()
+        val users = userService?.users()
 
-        return users.stream().map { user -> UserDto(user) }
+        return users?.stream()?.map { user -> UserDto(user) }
     }
 
     @GetMapping("/user/{userId}")
-    fun findUser(@PathVariable userId: Long): User {
-        val findUser = userService.findUser(userId)
+    fun findUser(@PathVariable userId: Long): User? {
+        val findUser = userService?.findUser(userId)
 
-        return findUser.get()
+        return findUser?.get()
     }
 }

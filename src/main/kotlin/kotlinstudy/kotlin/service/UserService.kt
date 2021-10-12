@@ -13,7 +13,7 @@ import javax.transaction.Transactional
 @RequiredArgsConstructor
 class UserService {
 
-    private final val userRepository: UserRepository
+    private val userRepository: UserRepository?
 
     @Autowired
     constructor(userRepository: UserRepository) {
@@ -22,16 +22,16 @@ class UserService {
 
     fun save(name: String?): Long? {
         val user = User(name)
-        val savedUser = userRepository.save(user)
+        val savedUser = userRepository?.save(user)
 
-        return savedUser.id
+        return savedUser?.id
     }
 
-    fun users(): MutableList<User> {
-        return userRepository.findAll()
+    fun users(): MutableList<User>? {
+        return userRepository?.findAll()
     }
 
-    fun findUser(userId: Long): Optional<User> {
-        return userRepository.findById(userId)
+    fun findUser(userId: Long): Optional<User>? {
+        return userRepository?.findById(userId)
     }
 }
