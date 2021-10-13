@@ -48,4 +48,20 @@ class T {
         println(withUser.id)
         println(withUser.name)
     }
+
+    @Test
+    fun arrayTest() {
+        val array: ArrayList<String> = ArrayList()
+        array.add("A")
+        array.add("B")
+        array.add("C")
+        array.add("D")
+        array.add("E")
+
+        println(array.size)
+        println(array[2])
+        for (s in array) {
+            println(s)
+        }
+    }
 }
