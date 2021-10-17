@@ -1,5 +1,6 @@
 package kotlinstudy.kotlin.service
 
+import kotlinstudy.kotlin.contorller.UserDto
 import kotlinstudy.kotlin.domain.User
 import kotlinstudy.kotlin.repository.UserRepository
 import lombok.RequiredArgsConstructor
@@ -13,7 +14,7 @@ import javax.transaction.Transactional
 @RequiredArgsConstructor
 class UserService {
 
-    private val userRepository: UserRepository?
+    private val userRepository: UserRepository
 
     @Autowired
     constructor(userRepository: UserRepository) {
@@ -22,16 +23,22 @@ class UserService {
 
     fun save(name: String?): Long? {
         val user = User(name)
-        val savedUser = userRepository?.save(user)
+        val savedUser = userRepository.save(user)
 
-        return savedUser?.id
+        return savedUser.id
     }
 
     fun users(): MutableList<User>? {
-        return userRepository?.findAll()
+        return userRepository.findAll()
     }
 
     fun findUser(userId: Long): Optional<User>? {
-        return userRepository?.findById(userId)
+        return userRepository.findById(userId)
+    }
+
+    fun updateUser(request: UserDto?) {
+        val findUser = request?.id?.let { userRepository.findById(it).get() }
+
+        findUser?.name = request?.name
     }
 }
