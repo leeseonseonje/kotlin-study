@@ -41,4 +41,8 @@ class UserService {
 
         findUser?.name = request?.name
     }
+
+    fun findName(name: String): List<User>? {
+        return userRepository.user(name)
+    }
 }

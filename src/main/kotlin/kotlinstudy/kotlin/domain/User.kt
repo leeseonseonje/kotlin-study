@@ -15,7 +15,6 @@ class User {
 
     var name: String? = null
 
-
     constructor(id: Long, name: String){
         this.id = id
         this.name = name

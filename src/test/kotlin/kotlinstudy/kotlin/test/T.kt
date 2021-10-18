@@ -106,7 +106,5 @@ class T {
 
         val nowToString: String? = now.toString()
         println("nowToString = $nowToString")
-
-
     }
 }

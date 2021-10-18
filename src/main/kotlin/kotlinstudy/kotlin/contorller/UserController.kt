@@ -5,6 +5,7 @@ import kotlinstudy.kotlin.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.util.stream.Stream
+import kotlin.streams.toList
 
 @RestController
 class UserController {
@@ -42,5 +43,11 @@ class UserController {
     @PatchMapping("/user")
     fun updateUser(@RequestBody request: UserDto?) {
         userService.updateUser(request)
+    }
+
+    @GetMapping("/user")
+    fun findName(@RequestParam("name") name: String): List<UserDto>? {
+        val users = userService.findName(name)
+        return users?.stream()?.map { user -> UserDto(user) }?.toList()
     }
 }
