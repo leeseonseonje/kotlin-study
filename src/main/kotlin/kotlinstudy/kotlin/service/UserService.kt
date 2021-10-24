@@ -25,7 +25,7 @@ class UserService {
         val user = User(name)
         val savedUser = userRepository.save(user)
 
-        return savedUser.id
+        return savedUser.getId()
     }
 
     fun users(): MutableList<User>? {
@@ -37,9 +37,9 @@ class UserService {
     }
 
     fun updateUser(request: UserDto?) {
-        val findUser = request?.id?.let { userRepository.findById(it).get() }
+        val findUser = request?.getId()?.let { userRepository.findById(it).get() }
 
-        findUser?.name = request?.name
+        findUser?.updateName(request.getName())
     }
 
     fun findName(name: String): List<User>? {

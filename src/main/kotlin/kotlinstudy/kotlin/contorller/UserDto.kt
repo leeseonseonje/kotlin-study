@@ -4,11 +4,19 @@ import kotlinstudy.kotlin.domain.User
 
 class UserDto {
 
-    var id: Long? = null
-    var name: String? = null
+    private var id: Long? = null
+    private var name: String? = null
 
     constructor(user: User) {
-        this.id = user.id
-        this.name = user.name
+        this.id = user.getId()
+        this.name = user.getName()
+    }
+
+    fun getId(): Long? {
+        return this.id
+    }
+
+    fun getName(): String? {
+        return this.name
     }
 }

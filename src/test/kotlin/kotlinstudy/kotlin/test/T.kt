@@ -21,37 +21,37 @@ class T {
 //        println(name)
 
         val userA = User()
-        println(userA.id)
-        println(userA.name)
+        println(userA.getId())
+        println(userA.getName())
 
-        val userB = User().apply {
-            id = 1L
-            name = "name"
-        }
+//        val userB = User().apply {
+//            get = 1L
+//            name = "name"
+//        }
 
-        println(userB.id)
-        println(userB.name)
+//        println(userB.id)
+//        println(userB.name)
 
-        val userC = User().also {
-            it.id = 2L
-            it.name = "2name"
-        }
+//        val userC = User().also {
+//            it.id = 2L
+//            it.name = "2name"
+//        }
+//
+//        println(userC.id)
+//        println(userC.name)
 
-        println(userC.id)
-        println(userC.name)
+//        val userD = User().also {
+//            println("print")
+//        }
+//
+//        val withUser : User = User()
+//        with(withUser) {
+//            id = 3L
+//            name = "withUser"
+//        }
 
-        val userD = User().also {
-            println("print")
-        }
-
-        val withUser : User = User()
-        with(withUser) {
-            id = 3L
-            name = "withUser"
-        }
-
-        println(withUser.id)
-        println(withUser.name)
+//        println(withUser.id)
+//        println(withUser.name)
     }
 
     @Test

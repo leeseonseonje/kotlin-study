@@ -11,9 +11,9 @@ class User {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
-    var id: Long? = null
+    private var id: Long? = null
 
-    var name: String? = null
+    private var name: String? = null
 
     constructor(id: Long, name: String){
         this.id = id
@@ -25,4 +25,17 @@ class User {
     }
 
     constructor()
+
+    fun getId(): Long? {
+        return this.id
+    }
+
+    fun getName(): String? {
+        return this.name
+    }
+
+    fun updateName(name: String?) {
+        this.name = name
+    }
+
 }

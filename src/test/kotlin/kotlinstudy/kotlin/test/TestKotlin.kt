@@ -27,8 +27,8 @@ class TestKotlin {
     fun userTest() {
         val user = User(3L, "name")
 
-        Assertions.assertThat(user.name).isEqualTo("name")
-        Assertions.assertThat(user.id).isEqualTo(1L)
+        Assertions.assertThat(user.getName()).isEqualTo("name")
+        Assertions.assertThat(user.getId()).isEqualTo(1L)
     }
 
     @Test
@@ -36,7 +36,13 @@ class TestKotlin {
         val user = User("name")
         val savedUser = userRepository.save(user)
 
-        Assertions.assertThat(savedUser.name).isEqualTo("name")
+        Assertions.assertThat(savedUser.getName()).isEqualTo("name")
+    }
+
+    @Test
+    fun getterTest() {
+        val user = User("name")
+        println(user.getName())
     }
 }
 

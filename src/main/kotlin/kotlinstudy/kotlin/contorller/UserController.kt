@@ -19,7 +19,7 @@ class UserController {
 
     @PostMapping("/user")
     fun saveUser(@RequestBody request: UserDto?) {
-        userService.save(request?.name)
+        userService.save(request?.getName())
     }
 
 //    표현식
