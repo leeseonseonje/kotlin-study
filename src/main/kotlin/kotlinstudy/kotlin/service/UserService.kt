@@ -39,7 +39,7 @@ class UserService {
     fun updateUser(request: UserDto?) {
         val findUser = request?.id?.let { userRepository.findById(it).get() }
 
-        findUser?.name = request?.name
+        findUser?.updateName(request?.name)
     }
 
     fun findName(name: String): List<User>? {
